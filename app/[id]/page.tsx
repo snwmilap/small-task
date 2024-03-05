@@ -20,7 +20,7 @@ const PostList: React.FC = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
+        "https://jsonplaceholder.typicode.com/postsaasd"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch posts");
@@ -40,24 +40,30 @@ const PostList: React.FC = () => {
   };
 
   if (loading) {
-    return <div className="">Loading...</div>;
+    return (
+      <div className="">
+        Loading...
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h1 className="text-5xl font-bold my-10">Posts</h1>
+    <div className="xl:p-20 p-10">
+      <Link href={'/'} className="text-5xl font-bold my-10 inline-block">Back</Link>
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-none gap-10">
         {data.map((post) => (
-          <Link
-            href={`/${post.id}`}
+          <div
             key={post.id}
-            className="bg-white border p-4 shadow-md rounded-lg hover:shadow-xl transform duration-300  bg-clip-border"
+            className="bg-white border p-4 shadow-md rounded-md"
           >
-            <h2 className="font-semibold text-xl mb-3 block capitalize hover:text-black text-gray-700">
+            <Link
+              href={`/${post.id}`}
+              className="font-semibold text-xl mb-3 block capitalize "
+            >
               {post.title}
-            </h2>
+            </Link>
             <p>{post.body}</p>
-          </Link>
+          </div>
         ))}
       </div>
       {error && (
