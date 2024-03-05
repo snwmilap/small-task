@@ -45,7 +45,7 @@ const PostList: React.FC = () => {
   return (
     <div>
       <h1 className="text-5xl font-bold my-10">Posts</h1>
-      <div className="grid grid-cols-4 gap-10">
+      <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-none gap-10">
         {data.map((post) => (
           <div key={post.id} className="bg-white border p-4 shadow-md rounded-md">
             <h3 className="font-semibold text-xl mb-3  ">{post.title}</h3>

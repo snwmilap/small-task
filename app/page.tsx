@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="p-20">
+    <main className="xl:p-20 p-10">
       <PostList />
     </main>
   );
